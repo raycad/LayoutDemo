@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg" >
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="Button 1" />
+
+        <Button
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg"
+            android:text="Button 2" />
+
+        <TextView
+            android:id="@+id/b2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/b3"
+            android:layout_toRightOf="@+id/b1"
+            android:gravity="center"
+            android:text="FFFFF" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_1" >
+
+        <!--
+        NOTE: Use android:stretchColumns="column_list" to stretch input columns
+        E.g: android:stretchColumns="1,3" => means: stretch comlumns 1 and 3
+        -->
+
+        <TableLayout
+            android:id="@+id/content_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchColumns="1"
+            android:verticalSpacing="10dp" >
+
+            <TableRow
+                android:id="@+id/user_name_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/user_name_text_view"
+                    android:gravity="center_vertical"
+                    android:text="@string/user_name" />
+
+                <EditText
+                    android:id="@+id/user_name_edit_text"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Enter user name here"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/address_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/address_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/address" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <EditText
+                        android:id="@+id/address_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:hint="Enter address here"
+                        android:text="" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+        <!-- just draw a red line -->
+
+        <View
+            android:id="@+id/spliter"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/content_grid_view"
+            android:layout_marginTop="20dp"
+            android:background="#FF0000" />
+
+        <Button
+            android:id="@+id/add_data_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spliter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/add_data" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/table_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_2"
+        android:layout_marginTop="10dp"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/edit_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Field1" />
+
+            <EditText
+                android:id="@+id/edit_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="Field2" />
+        </TableRow>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="#FF0000" >
+        </View>
+
+        <TableRow
+            android:id="@+id/table_row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/edit_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Field3" />
+
+            <EditText
+                android:id="@+id/edit_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Field4" />
+        </TableRow>
+
+        <Button
+            android:id="@+id/collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toggleHiddenRows"
+            android:text="Hide second column" />
+    </TableLayout>
+
+</RelativeLayout>
